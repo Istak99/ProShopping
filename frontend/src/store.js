@@ -14,10 +14,13 @@
 
 /***************************************** replaced create store with configureStore  */
 
-import {configureStore} from '@reduxjs/toolkit'
+import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
+import {productListReducer} from './reducers/productReducers'
 
-const reducer = {}
+const reducer = combineReducers({
+  productList: productListReducer,
+})
 
 const initialState = {}
 
