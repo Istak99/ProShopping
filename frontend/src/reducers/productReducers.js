@@ -11,7 +11,7 @@ import {
 export const productListReducer = (state = {products : []}, action) => {
     switch(action.type){
         case PRODUCT_LIST_REQUEST:
-            return {loading: true}
+            return {loading: true, products: []} //this was not a part of this commit
 
         case PRODUCT_LIST_SUCCESS:
             return {loading: false, products: action.payload}
