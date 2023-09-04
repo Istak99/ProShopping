@@ -64,7 +64,7 @@ const CartScreen = () => {
                                         </Col>
 
                                         <Col md={2}>
-                                            <Button type='button' varient="light" onClick={() => 
+                                            <Button type='button' variant="light" onClick={() => 
                                                 removeFormCartHandler(item.product)}>
                                                 <i className='fas fa-trash'></i>
                                             </Button>
@@ -78,7 +78,7 @@ const CartScreen = () => {
                     
                 <Col md={4}>
                     <Card>
-                        <ListGroup varient="flush">
+                        <ListGroup variant="flush">
                             <ListGroup.Item>
                                 <h2>Subtotal ({cartItems.reduce((acc,item)=> acc + item.qty, 0)}) items</h2>
                                 ${cartItems.reduce((acc,item) => acc+item.qty * item.price, 0).toFixed(2)}
