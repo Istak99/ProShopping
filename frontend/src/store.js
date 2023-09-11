@@ -18,7 +18,7 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
 import {productListReducer, productDetailsReducer} from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers'
+import { userLoginReducer, userRegisterReducer, userDetailsReducer } from './reducers/userReducers'
 
 
 
@@ -28,6 +28,7 @@ const reducer = combineReducers({
   cart: cartReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  userDetails: userDetailsReducer,
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(
@@ -38,7 +39,7 @@ const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(
 
 const initialState = {
   cart: {cartItems: cartItemsFromStorage},
-  userInfo: {userInfo: userInfoFromStorage}
+  userDetails: {userInfo: userInfoFromStorage}
 }
 
 const middleware = [thunk]
@@ -49,4 +50,4 @@ const store = configureStore({
   preloadedState: initialState,
 })
 
-export default store
+export default store 
