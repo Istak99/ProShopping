@@ -7,7 +7,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CartScreen = () => {
     let {id} = useParams();
-    let history = useNavigate();
+    let navigate = useNavigate();
     let location =useLocation();
 
     const qty= location.search ? Number(location.search.split("=")[1]) : 1
@@ -15,7 +15,7 @@ const CartScreen = () => {
     const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
-    const {cartItems} =cart
+    const {cartItems} = cart
 
     useEffect(()=>{
         if(id){
@@ -28,7 +28,7 @@ const CartScreen = () => {
     }
 
     const checkoutHandler = () =>{
-        history('/login?redirect=shipping')
+        navigate("/shipping", { replace: true }); 
     }
 
     return (
@@ -41,7 +41,7 @@ const CartScreen = () => {
                             {cartItems.map(item => (
                                 <ListGroup.Item key={item.product}>
                                     <Row>
-                                        
+                                
                                         <Col md={2}>
                                             <Image src={item.image} alt={item.name} fluid rounded/>
                                         </Col>
